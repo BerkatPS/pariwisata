@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToWidth="true" styleClass="main-scroll-pane" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.UserReviewController" stylesheets="@../../css/users/visitor_review.css">
+
+    <VBox spacing="0" styleClass="main-container">
+        <!-- Hero Section with Parallax Effect -->
+        <StackPane styleClass="hero-section">
+            <ImageView styleClass="hero-background" fitWidth="1200" preserveRatio="true">
+            </ImageView>
+            <VBox spacing="15" styleClass="hero-content">
+                <Text styleClass="hero-title" text="Your Travel Stories"/>
+                <Text styleClass="hero-subtitle" text="Share your adventures and inspire others"/>
+                <Button fx:id="openReviewButton" text="✏️ Write a Review" styleClass="hero-button"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Stats Cards -->
+        <HBox spacing="0" styleClass="stats-container">
+            <VBox styleClass="stat-card">
+                <StackPane styleClass="stat-icon-container">
+                    <Text styleClass="stat-icon" text="⭐"/>
+                </StackPane>
+                <Text styleClass="stat-number" text="4.8"/>
+                <Text styleClass="stat-label" text="Average Rating"/>
+            </VBox>
+            <VBox styleClass="stat-card">
+                <StackPane styleClass="stat-icon-container">
+                    <Text styleClass="stat-icon" text="📝"/>
+                </StackPane>
+                <Text styleClass="stat-number" fx:id="totalReviewsText" text="0"/>
+                <Text styleClass="stat-label" text="Reviews Written"/>
+            </VBox>
+            <VBox styleClass="stat-card">
+                <StackPane styleClass="stat-icon-container">
+                    <Text styleClass="stat-icon" text="🌍"/>
+                </StackPane>
+                <Text styleClass="stat-number" text="12"/>
+                <Text styleClass="stat-label" text="Places Explored"/>
+            </VBox>
+        </HBox>
+
+        <!-- Reviews Section -->
+        <VBox styleClass="reviews-section">
+            <HBox styleClass="reviews-header">
+                <VBox>
+                    <Text styleClass="section-title" text="Recent Reviews"/>
+                    <Text styleClass="section-subtitle" text="Your latest travel experiences"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="filterComboBox" styleClass="filter-combo"/>
+            </HBox>
+
+            <!-- Reviews Grid -->
+            <VBox fx:id="reviewContainer" styleClass="reviews-grid"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

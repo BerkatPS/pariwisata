@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.PaymentController"
+            stylesheets="@../../css/payment.css"
+            styleClass="root"
+            prefWidth="1280"
+            prefHeight="800">
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="content-header">
+                <Label text="Payment Management" styleClass="content-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Create Payment"
+                        styleClass="button-primary" fx:id="addPaymentButton"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox styleClass="search-container">
+                <Label text="Search Payments" styleClass="search-label"/>
+                <TextField fx:id="searchField"
+                           promptText="Enter payment ID, booking ID, or status..."
+                           styleClass="search-field"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Statistics -->
+            <HBox styleClass="stats-container" spacing="20">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                    <Label text="Total Payments" styleClass="stat-label"/>
+                    <Label fx:id="totalPaymentsLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                    <Label text="Total Revenue" styleClass="stat-label"/>
+                    <Label fx:id="totalRevenueLabel" text="Rp 0" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="paymentTable"
+                       VBox.vgrow="ALWAYS"
+                       styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="paymentIdColumn" text="Payment ID" prefWidth="100"/>
+                    <TableColumn fx:id="bookingIdColumn" text="Booking ID" prefWidth="100"/>
+                    <TableColumn fx:id="amountColumn" text="Amount" prefWidth="150"/>
+                    <TableColumn fx:id="methodColumn" text="Method" prefWidth="150"/>
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="actionColumn" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

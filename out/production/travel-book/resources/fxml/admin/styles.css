@@ -1,0 +1,163 @@
+/* Root styling */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f8f9fa;
+}
+
+/* Header styling */
+.header {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+    -fx-min-height: 70px;
+    -fx-alignment: center-left;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+.header-user {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2d3436;
+}
+
+.header-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.header-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Sidebar styling */
+.sidebar {
+    -fx-background-color: #2d3436;
+    -fx-padding: 20 15;
+    -fx-min-width: 250px;
+    -fx-spacing: 8;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #b2bec3;
+    -fx-font-size: 15px;
+    -fx-padding: 12 20;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-alignment: center-left;
+    -fx-min-width: 220px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #404b4d;
+    -fx-text-fill: white;
+}
+
+.active-nav-item {
+    -fx-background-color: #404b4d;
+    -fx-text-fill: white;
+}
+
+/* Content area styling */
+.content-area {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 30;
+    -fx-spacing: 30;
+}
+
+.content-header {
+    -fx-padding: 0 0 20 0;
+    -fx-border-color: transparent transparent #dee2e6 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.main-heading {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+.action-button {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #2d3436;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #e9ecef;
+}
+
+/* Dashboard cards styling */
+.dashboard-cards {
+    -fx-padding: 20 0;
+}
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-padding: 24;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 4);
+    -fx-spacing: 15;
+}
+
+.stat-header {
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+}
+
+.stat-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #636e72;
+}
+
+.stat-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+.stat-trend {
+    -fx-font-size: 14px;
+    -fx-text-fill: #00b894;
+    -fx-padding: 5 10;
+    -fx-background-radius: 4px;
+    -fx-background-color: #55efc44d;
+}
+
+.stat-trend.negative {
+    -fx-text-fill: #d63031;
+    -fx-background-color: #ff76764d;
+}
+
+/* Icon placeholders - replace with actual icons in your implementation */
+.dashboard-icon, .analytics-icon, .destinations-icon, .packages-icon,
+.bookings-icon, .payments-icon, .transport-icon, .revenue-icon, .users-icon {
+    -fx-min-width: 24px;
+    -fx-min-height: 24px;
+    -fx-background-color: #b2bec3;
+    -fx-shape: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z";
+}
+
+.stat-subtitle {
+    -fx-font-size: 10px;
+    -fx-text-fill: #7f8c8d;
+    -fx-opacity: 0.7;
+}
+
+.stat-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3498db;
+}

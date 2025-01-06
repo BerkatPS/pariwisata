@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.UserDashboardController"
+            stylesheets="@user_styles.css" fx:id="rootPane" prefWidth="1280" prefHeight="800" >
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox styleClass="top-navigation">
+            <ImageView fx:id="logoImage" styleClass="app-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="15" alignment="CENTER_RIGHT">
+                <Button text="Dashboard" onAction="#loadOverview" styleClass="nav-button"/>
+                <Button text="Bookings" onAction="#loadBookings" styleClass="nav-button"/>
+                <Button text="Explore" onAction="#loadDestinations" styleClass="nav-button"/>
+                <Button text="Review" onAction="#loadReviews" styleClass="nav-button"/>
+                <Button text="Payment" onAction="#loadPayments" styleClass="nav-button"/>
+                <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+                <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Quick Stats -->
+            <HBox styleClass="quick-stats">
+                <VBox styleClass="stat-card">
+                    <Label text="Total Bookings" styleClass="stat-title"/>
+                    <Label fx:id="totalBookingsLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card">
+                    <Label text="Upcoming Trips" styleClass="stat-title"/>
+                    <Label fx:id="upcomingTripsLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card">
+                    <Label text="Total Spent" styleClass="stat-title"/>
+                    <Label fx:id="totalSpentLabel" text="" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- Featured Destinations -->
+            <VBox styleClass="featured-section">
+                <Label text="Featured Destinations" styleClass="section-title"/>
+                <HBox fx:id="featuredDestinationsContainer" styleClass="destinations-grid" spacing="15"/>
+            </VBox>
+
+            <!-- Recent Bookings -->
+            <VBox styleClass="recent-bookings">
+                <Label text="Recent Bookings" styleClass="section-title"/>
+                <TableView fx:id="recentBookingsTable" styleClass="bookings-table">
+                    <columns>
+                        <TableColumn text="Destination" styleClass="table-column"/>
+                        <TableColumn text="Date" styleClass="table-column"/>
+                        <TableColumn text="Status" styleClass="table-column"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

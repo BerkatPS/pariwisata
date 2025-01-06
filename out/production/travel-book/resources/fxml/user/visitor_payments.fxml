@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns:fa="http://de.jensd.fx/javafx/fontawesome"
+            fx:controller="app.controllers.UserPaymentListController"
+            styleClass="main-container"
+            stylesheets="@../../css/users/visitor_payments.css">
+
+    <VBox spacing="20" alignment="CENTER"
+          AnchorPane.topAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.bottomAnchor="0">
+
+        <!-- Header Section with Modern Design -->
+        <HBox styleClass="header-section" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" spacing="15">
+                <VBox>
+                    <Text styleClass="header-title" text="Payment Management" />
+                    <Text styleClass="header-subtitle" text="Track and manage your bookings" />
+                </VBox>
+            </HBox>
+
+        </HBox>
+
+        <!-- Statistics Overview -->
+        <HBox styleClass="stats-container" spacing="20">
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Total Pending" styleClass="stat-label"/>
+                <Label fx:id="pendingCountLabel" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label text="Total Amount" styleClass="stat-label"/>
+                <Label fx:id="totalPendingAmountLabel" text="Rp 0" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Payment Cards Container with Modern Scroll Pane -->
+        <StackPane VBox.vgrow="ALWAYS" styleClass="payments-container">
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="custom-scroll-pane">
+                <VBox fx:id="paymentContainer"
+                      spacing="15"
+                      alignment="TOP_CENTER"
+                      styleClass="payment-grid">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                </VBox>
+            </ScrollPane>
+
+            <!-- Overlay for Empty State -->
+            <VBox fx:id="emptyStateOverlay"
+                  alignment="CENTER"
+                  styleClass="empty-state-overlay"
+                  visible="false">
+                <Label text="No Pending Payments" styleClass="empty-state-text"/>
+                <Button text="Create New Payment" styleClass="empty-state-button"/>
+            </VBox>
+        </StackPane>
+    </VBox>
+</AnchorPane>

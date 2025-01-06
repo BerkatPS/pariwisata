@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="app.controllers.UserBookingController"
+      styleClass="booking-form-container"
+      stylesheets="@../../css/users/visitor_booking.css">
+
+    <!-- Close Button -->
+    <HBox alignment="TOP_RIGHT" styleClass="header">
+        <Button fx:id="closeButton" text="✕" styleClass="close-button"/>
+    </HBox>
+
+    <!-- Form Title -->
+    <Label text="Create New Booking" styleClass="form-title"/>
+
+    <!-- Booking Form -->
+    <VBox spacing="15" styleClass="form-content">
+        <!-- Destination Selection -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Select Destination" styleClass="form-label"/>
+            <ComboBox fx:id="destinationComboBox"
+                      promptText="Choose a destination"
+                      styleClass="form-control"/>
+        </VBox>
+
+        <!-- Booking Date -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Booking Date" styleClass="form-label"/>
+            <DatePicker fx:id="bookingDatePicker" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Number of People -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Number of People" styleClass="form-label"/>
+            <TextField fx:id="peopleTextField"
+                       promptText="Enter number of people"
+                       styleClass="form-control"/>
+        </VBox>
+
+        <!-- Total Price -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Total Price" styleClass="form-label"/>
+            <Label fx:id="totalPriceLabel" text="Price" styleClass="price-label"/>
+        </VBox>
+
+        <!-- Book Button -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="bookButton" text="Book Now" styleClass="book-button"/>
+            <Button fx:id="cancelButton" text="Cancel" styleClass="cancel-button"/>
+        </HBox>
+    </VBox>
+</VBox>

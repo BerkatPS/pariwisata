@@ -1,0 +1,81 @@
+.booking-form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-padding: 20;
+    -fx-min-width: 400;
+}
+
+.header {
+    -fx-padding: 0 0 10 0;
+}
+
+.close-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+.close-button:hover {
+    -fx-text-fill: #c0392b;
+}
+
+.form-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-alignment: center;
+}
+
+.form-content {
+    -fx-spacing: 15;
+}
+
+.form-group {
+    -fx-spacing: 5;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #636e72;
+}
+
+.form-control {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #dfe4ea;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+}
+
+.form-control:focused {
+    -fx-border-color: #3498db;
+}
+
+.price-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #27ae60;
+}
+
+.book-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+}
+
+.book-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.cancel-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #c0392b;
+}

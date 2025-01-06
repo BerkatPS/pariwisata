@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.TransportController"
+            stylesheets="@../../css/transport.css"
+            styleClass="root"
+            prefWidth="1280"
+            prefHeight="800">
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="content-header">
+                <Label text="Transport Management" styleClass="content-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Add Transport"
+                        styleClass="button-primary" fx:id="addTransportButton"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox styleClass="search-container">
+                <Label text="Search Transports" styleClass="search-label"/>
+                <TextField fx:id="searchField"
+                           promptText="Enter transport type, destination, or price..."
+                           styleClass="search-field"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Statistics -->
+<!--            <HBox styleClass="stats-container" spacing="20">-->
+<!--                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">-->
+<!--                    <Label text="Total Transports" styleClass="stat-label"/>-->
+<!--                    <Label fx:id="totalTransportsLabel" text="0" styleClass="stat-value"/>-->
+<!--                </VBox>-->
+<!--                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">-->
+<!--                    <Label text="Total Revenue" styleClass="stat-label"/>-->
+<!--                    <Label fx:id="totalRevenueLabel" text="Rp 0" styleClass="stat-value"/>-->
+<!--                </VBox>-->
+<!--            </HBox>-->
+
+            <!-- Table -->
+            <TableView fx:id="transportTable"
+                       VBox.vgrow="ALWAYS"
+                       styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="transportIdColumn" text="Transport ID" prefWidth="100"/>
+                    <TableColumn fx:id="transportTypeColumn" text="Type" prefWidth="150"/>
+                    <TableColumn fx:id="destinationIdColumn" text="Destination ID" prefWidth="150"/>
+                    <TableColumn fx:id="priceColumn" text="Price" prefWidth="150"/>
+                    <TableColumn fx:id="departureTimeColumn" text="Departure" prefWidth="200"/>
+                    <TableColumn fx:id="arrivalTimeColumn" text="Arrival" prefWidth="200"/>
+                    <TableColumn fx:id="actionColumn" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

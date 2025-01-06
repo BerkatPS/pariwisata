@@ -1,0 +1,170 @@
+/* Root Styles */
+.main-scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.main-scroll-pane > .viewport {
+    -fx-background-color: #f8f9fa;
+}
+
+.main-container {
+    -fx-padding: 0 0 40 0;
+}
+
+/* Hero Section */
+.hero-section {
+    -fx-min-height: 300;
+    -fx-background-color: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+}
+
+.hero-image {
+    -fx-opacity: 0.8;
+}
+
+.hero-content {
+    -fx-padding: 40;
+    -fx-alignment: center;
+}
+
+.hero-title {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+}
+
+.hero-subtitle {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 20px;
+    -fx-fill: white;
+    -fx-opacity: 0.9;
+}
+
+/* Search Bar */
+.search-bar {
+    -fx-spacing: 10;
+    -fx-padding: 20 0;
+    -fx-max-width: 600;
+    -fx-alignment: center;
+}
+
+.search-input {
+    -fx-pref-height: 45;
+    -fx-font-size: 16px;
+    -fx-background-radius: 25;
+    -fx-padding: 0 20;
+    -fx-prompt-text-fill: #95a5a6;
+}
+
+.search-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 12 30;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.search-button:hover {
+    -fx-background-color: #3498db;
+}
+
+/* Section Headers */
+.section-header {
+    -fx-padding: 0 40;
+}
+
+.section-title {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-fill: #2d3436;
+}
+
+.section-subtitle {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 16px;
+    -fx-fill: #636e72;
+}
+
+.view-all-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3498db;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.view-all-button:hover {
+    -fx-text-fill: #3498db;
+}
+
+/* Destination Cards */
+.destination-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.destination-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 8);
+    -fx-translate-y: -2;
+}
+
+.card-image {
+    -fx-background-radius: 15 15 0 0;
+}
+
+.card-content {
+    -fx-padding: 20;
+    -fx-spacing: 10;
+}
+
+.destination-name {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.destination-location {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 14px;
+    -fx-text-fill: #636e72;
+}
+
+.rating-box {
+    -fx-spacing: 5;
+    -fx-alignment: center-left;
+}
+
+.rating-star {
+    -fx-fill: #f1c40f;
+}
+
+.rating-text {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.review-count {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 14px;
+    -fx-text-fill: #636e72;
+}
+
+/* Featured Grid */
+.featured-grid {
+    -fx-padding: 0 40;
+}
+
+/* Price Tag */
+.price-tag {
+    -fx-background-color: #3498db;
+    -fx-background-radius: 20;
+    -fx-padding: 5 15;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

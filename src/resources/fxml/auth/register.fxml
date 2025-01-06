@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.RegisterController" stylesheets="@register.css">
+    <!-- Background Container -->
+    <VBox styleClass="background-container" alignment="CENTER">
+        <!-- Register Card -->
+        <VBox styleClass="register-card" alignment="CENTER" maxWidth="400" spacing="20">
+            <!-- Logo and Title Section -->
+            <VBox alignment="CENTER" spacing="15">
+                <ImageView fx:id="logoImage" fitHeight="80" fitWidth="80"/>
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Daftar Akun" styleClass="welcome-title"/>
+                    <Label text="Silakan buat akun baru" styleClass="welcome-subtitle"/>
+                </VBox>
+            </VBox>
+
+            <!-- Form Section -->
+            <VBox spacing="15" maxWidth="320">
+                <!-- Username Field -->
+                <VBox spacing="8">
+                    <Label text="Nama Pengguna" styleClass="input-label"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Masukkan nama pengguna"
+                               styleClass="input-field"/>
+                </VBox>
+
+                <!-- Email Field -->
+                <VBox spacing="8">
+                    <Label text="Email" styleClass="input-label"/>
+                    <TextField fx:id="emailField"
+                               promptText="Masukkan email"
+                               styleClass="input-field"/>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="8">
+                    <Label text="Kata Sandi" styleClass="input-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Masukkan kata sandi"
+                                   styleClass="input-field"/>
+                </VBox>
+
+                <!-- Confirm Password Field -->
+                <VBox spacing="8">
+                    <Label text="Konfirmasi Kata Sandi" styleClass="input-label"/>
+                    <PasswordField fx:id="confirmPasswordField"
+                                   promptText="Konfirmasi kata sandi"
+                                   styleClass="input-field"/>
+                </VBox>
+
+                <!-- Register Button -->
+                <Button text="Daftar"
+                        onAction="#handleRegister"
+                        styleClass="register-button"/>
+
+                <!-- Login Link -->
+                <HBox alignment="CENTER" spacing="5">
+                    <Label text="Sudah memiliki akun?" styleClass="login-text"/>
+                    <Hyperlink text="Masuk"
+                               onAction="#navigateToLogin"
+                               styleClass="login-link"/>
+                </HBox>
+            </VBox>
+
+            <!-- Error Message -->
+            <Label fx:id="errorLabel" styleClass="error-label"/>
+
+            <!-- Footer -->
+            <Label text="© Kelompok Sawali." styleClass="footer"/>
+        </VBox>
+    </VBox>
+</StackPane>

@@ -1,0 +1,202 @@
+/* Root styling */
+.root {
+    -fx-font-family: 'Segoe UI', system-ui, sans-serif;
+    -fx-background-color: #f8fafc;
+    -fx-font-size: 14px;
+}
+
+/* Header styling */
+.header {
+    -fx-background-color: white;
+    -fx-padding: 30px 40px;
+    -fx-spacing: 20px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+.heading {
+    -fx-font-size: 32px;
+    -fx-text-fill: #1e3a8a;
+    -fx-font-weight: bold;
+}
+
+/* Form scroll pane */
+.form-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Form container */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 40px;
+    -fx-spacing: 40px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 5);
+}
+
+/* Form grid */
+.form-grid {
+    -fx-hgap: 30px;
+    -fx-vgap: 30px;
+}
+
+/* Form labels */
+.form-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+/* Form fields */
+.form-field {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 16px;
+    -fx-pref-width: 500px;
+}
+
+.form-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.1), 0, 0, 0, 4);
+}
+
+/* TextArea specific styling */
+.form-field.text-area {
+    -fx-pref-height: 120px;
+}
+
+.form-field.text-area .content {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px;
+}
+
+.form-field.text-area:focused .content {
+    -fx-background-color: white;
+}
+
+/* Error labels */
+.error-label {
+    -fx-text-fill: #dc2626;
+    -fx-font-size: 13px;
+    -fx-padding: 5px 0 0 0;
+}
+
+/* Action buttons container */
+.form-actions {
+    -fx-spacing: 15px;
+    -fx-padding: 20px 0 0 0;
+}
+
+/* Primary button (Save Package) */
+.button-primary {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-width: 150px;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 0, 0, 0, 1);
+}
+
+.button-primary:hover {
+    -fx-background-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 0, 0, 0, 2);
+}
+
+/* Secondary button (Clear Form) */
+.button-secondary {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #475569;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-width: 150px;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #cbd5e1;
+}
+
+/* Outline button (Back to List) */
+.button-outline {
+    -fx-background-color: transparent;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #64748b;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 24px;
+    -fx-cursor: hand;
+}
+
+.button-outline:hover {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #cbd5e1;
+}
+
+/* Input placeholders */
+.form-field:focused {
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.form-field {
+    -fx-prompt-text-fill: #cbd5e1;
+}
+
+/* ScrollPane scroll bars */
+.scroll-bar:vertical {
+    -fx-pref-width: 12px;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 12px;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #cbd5e1;
+    -fx-background-radius: 6px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #94a3b8;
+}
+
+/* Animation for focus transitions */
+.form-field {
+    -fx-transition: -fx-border-color 0.2s, -fx-background-color 0.2s;
+}
+
+/* Required field indicator */
+.form-label.required:after {
+    -fx-content: "*";
+    -fx-text-fill: #dc2626;
+    -fx-padding: 0 0 0 5px;
+}
+
+/* Container max width */
+.form-container {
+    -fx-max-width: 800px;
+    -fx-alignment: center;
+}

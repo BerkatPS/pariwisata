@@ -1,0 +1,169 @@
+/* Root Styles */
+.main-container {
+    -fx-background-color: linear-gradient(to right, #f8f9fa, #f1f3f5);
+    -fx-padding: 30;
+}
+
+/* Header Styles */
+.header-section {
+    -fx-padding: 20 30;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 5);
+    -fx-backdrop-filter: blur(10px);
+}
+
+.header-title {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-fill: #2d3436;
+}
+
+.header-subtitle {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 16px;
+    -fx-fill: #636e72;
+    -fx-opacity: 0.8;
+}
+
+.book-now-button {
+    -fx-background-color: linear-gradient(to right, #3498db, #2980b9);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 24;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);
+}
+
+.book-now-button:hover {
+    -fx-background-color: linear-gradient(to right, #2980b9, #3498db);
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);
+}
+
+@keyframes cardHover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.booking-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+    -fx-transition: all 0.3s ease;
+}
+/* Scroll Pane Styles */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 5;
+}
+
+/* Payment Card Styles */
+.booking-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+}
+
+.booking-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.2), 25, 0, 0, 10);
+    -fx-translate-y: -5;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-border-color: #3498db;
+    -fx-border-width: 1;
+    -fx-transition: all 0.3s ease;
+}
+
+.booking-info {
+    -fx-spacing: 30;
+}
+
+/* Info Section Styles */
+.info-section {
+    -fx-spacing: 8;
+}
+
+.info-label {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 13px;
+    -fx-text-fill: #636e72;
+    -fx-font-weight: normal;
+}
+
+.info-text {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+.price-text {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3498db;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    -fx-padding: 5 15;
+    -fx-background-radius: 15;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-text-fill: #27ae60;
+}
+
+.status-paid {
+    -fx-background-color: #e1f7e9;
+    -fx-text-fill: #27ae60;
+}
+
+.status-pending {
+    -fx-background-color: #fff3 e0;
+    -fx-text-fill: #f39c12;
+}
+
+.status-failed {
+    -fx-background-color: #fee7e7;
+    -fx-text-fill: #e74c3c;
+}
+
+.cancel-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.empty-state-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #636e72;
+    -fx-alignment: center;
+    -fx-padding: 50;
+}

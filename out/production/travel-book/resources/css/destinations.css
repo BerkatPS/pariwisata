@@ -1,0 +1,182 @@
+/* Root styling */
+root {
+    -fx-background-color: #f8fafc;
+    -fx-font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Gunakan styling dari packages.css dengan tambahan atau modifikasi khusus untuk destinations */
+.modern-table .table-row-cell:hover {
+    -fx-background-color: #f0f4f8;
+}
+
+.button-secondary {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+}
+
+.button-danger {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+
+/* Sidebar styling */
+.sidebar {
+    -fx-background-color: #1e293b;
+    -fx-pref-width: 260px;
+    -fx-min-width: 260px;
+    -fx-padding: 0;
+}
+
+/* Admin header */
+.admin-header {
+    -fx-background-color: #1e293b;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-alignment: center-left;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.admin-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.admin-role {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 14px;
+}
+
+.logout-button {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #dc2626;
+}
+
+/* Navigation menu */
+.nav-menu {
+    -fx-padding: 20px 0;
+    -fx-spacing: 5px;
+}
+
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 15px;
+    -fx-padding: 12px 20px;
+    -fx-cursor: hand;
+    -fx-alignment: center-left;
+    -fx-min-width: 260px;
+}
+
+.nav-item:hover {
+    -fx-background-color: #334155;
+}
+
+.nav-item-active {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* Main content area */
+.main-content {
+    -fx-padding: 30px;
+    -fx-spacing: 25px;
+}
+
+/* Content header */
+.content-header {
+    -fx-padding: 0 0 20px 0;
+    -fx-alignment: center;
+}
+
+.content-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+/* Search container */
+.search-container {
+    -fx-spacing: 15px;
+    -fx-padding: 20px;
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 3);
+}
+
+.search-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+}
+
+.search-field {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+}
+
+.search-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-background-color: white;
+}
+
+/* Table styling */
+.modern-table {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 3);
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8fafc;
+    -fx-padding: 15px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+    -fx-padding: 10px;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #f8fafc;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #eff6ff;
+}
+
+/* Button styling */
+.button-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.button-primary:hover {
+    -fx-background-color: #1d4ed8;
+}

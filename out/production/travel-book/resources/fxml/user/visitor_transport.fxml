@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.UserTransportController" alignment="CENTER" stylesheets="@user_styles.css">
+
+    <!-- Heading -->
+    <HBox alignment="CENTER" styleClass="heading-container">
+        <Label text="Available Transport Options" styleClass="main-heading"/>
+    </HBox>
+
+    <!-- Transport Table -->
+
+    <TableView fx:id="transportTable" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="transportIdColumn" text="ID" styleClass="table-column"/>
+            <TableColumn fx:id="destinationNameColumn" text="Destination" styleClass="table-column"/>
+            <TableColumn fx:id="transportTypeColumn" text="Type" styleClass="table-column"/>
+            <TableColumn fx:id="priceColumn" text="Price" styleClass="table-column"/>
+            <TableColumn fx:id="departureTimeColumn" text="Departure Time" styleClass="table-column"/>
+            <TableColumn fx:id="arrivalTimeColumn" text="Arrival Time" styleClass="table-column"/>
+        </columns>
+    </TableView>
+
+    <!-- Back Button -->
+    <Button fx:id="backButton" text="Back" styleClass="back-button"/>
+<!--    <Button text="Add Transport"  fx:id="addTransportButton" styleClass="cta-button"/>-->
+
+</VBox>

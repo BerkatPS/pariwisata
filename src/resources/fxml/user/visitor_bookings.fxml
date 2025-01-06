@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.UserBookingListController"
+            styleClass="main-container" stylesheets="@../../css/users/visitor_bookings.css">
+
+    <VBox spacing="30" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+
+        <!-- Header Section -->
+        <HBox styleClass="header-section" alignment="CENTER">
+            <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Text styleClass="header-title" text="My Bookings" />
+                <Text styleClass="header-subtitle" text="Manage your travel plans" />
+            </VBox>
+
+            <Button fx:id="bookButton" styleClass="book-now-button" text="+ New Booking" />
+            <Button fx:id="loadData" styleClass="book-now-button" text="Load Data" />
+        </HBox>
+
+        <!-- Booking Cards Container -->
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox fx:id="bookingContainer" spacing="20" styleClass="booking-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+            </VBox>
+        </ScrollPane>
+
+    </VBox>
+</AnchorPane>

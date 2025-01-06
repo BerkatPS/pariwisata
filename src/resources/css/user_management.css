@@ -1,0 +1,62 @@
+/* Container utama untuk manajemen pengguna */
+.user-management-container {
+    -fx-padding: 20;
+    -fx-background-color: #ffffff; /* Warna latar belakang */
+}
+
+/* Judul */
+.heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d2d2d; /* Warna teks judul */
+}
+
+/* Tabel pengguna */
+.user-table {
+    -fx-border-color: #d4d4d4;
+    -fx-border-radius: 5;
+    -fx-font-size: 14px;
+}
+
+/* Form input */
+.form-container {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.input-field {
+    -fx-pref-width: 150px; /* Lebar input field */
+    -fx-pref-height: 35px; /* Tinggi input field */
+    -fx-background-color: #f7f7f7; /* Warna latar belakang input */
+    -fx-border-color: #d4d4d4; /* Warna batas */
+    -fx-border-radius: 5; /* Sudut input bulat */
+}
+
+/* Tombol utama */
+.button-container {
+    -fx-spacing: 10;
+}
+
+.button-primary {
+    -fx-background-color: #4285f4; /* Warna latar belakang tombol */
+    -fx-text-fill: white; /* Warna teks */
+    -fx-padding: 10 20; /* Padding tombol */
+    -fx-font-size: 14px;
+    -fx-border-radius: 5; /* Sudut tombol bulat */
+}
+
+.button-secondary {
+    -fx-background-color: #34a853; /* Warna latar belakang untuk tombol update */
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5;
+}
+
+.button-danger {
+    -fx-background-color: #ea4335; /* Warna latar belakang untuk tombol delete */
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5;
+}

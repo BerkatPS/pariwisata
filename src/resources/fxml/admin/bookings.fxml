@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.BookingController"
+            stylesheets="@../../css/booking.css"
+            styleClass="root"
+            prefWidth="1280"
+            prefHeight="800">
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="content-header">
+                <Label text="Booking Management" styleClass="content-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Create Booking" onAction="#openBookingForm"
+                        styleClass="button-primary" fx:id="addBookingButton"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox styleClass="search-container">
+                <Label text="Search Bookings" styleClass="search-label"/>
+                <TextField fx:id="searchField"
+                           promptText="Enter booking ID, user ID, or status..."
+                           styleClass="search-field"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Statistics -->
+            <HBox styleClass="stats-container" spacing="20">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                    <Label text="Total Bookings" styleClass="stat-label"/>
+                    <Label fx:id="totalBookingsLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                    <Label text="Total Revenue" styleClass="stat-label"/>
+                    <Label fx:id="totalRevenueLabel" text="Rp 0" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="bookingTable"
+                       VBox.vgrow="ALWAYS"
+                       styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="bookingIdColumn" text="Booking ID" prefWidth="100"/>
+                    <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="100"/>
+                    <TableColumn fx:id="packageIdColumn" text="Package ID" prefWidth="150"/>
+                    <TableColumn fx:id="bookingDateColumn" text="Booking Date" prefWidth="200"/>
+                    <TableColumn fx:id="totalAmountColumn" text="Total Amount" prefWidth="150"/>
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="actionColumn" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

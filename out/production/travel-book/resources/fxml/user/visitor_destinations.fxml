@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToWidth="true" styleClass="main-scroll-pane" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.UserDestinationController" stylesheets="@../../css/users/visitor_destinations.css">
+
+    <VBox spacing="40" styleClass="main-container">
+        <!-- Hero Section -->
+        <StackPane styleClass="hero-section">
+            <ImageView fx:id="heroImage" fitWidth="1200" fitHeight="300" styleClass="hero-image"/>
+            <VBox spacing="15" styleClass="hero-content">
+                <Text styleClass="hero-title" text="Discover Indonesia"/>
+                <Text styleClass="hero-subtitle" text="Explore the beauty of 17,000 islands"/>
+
+                <!-- Search Bar -->
+                <HBox styleClass="search-bar">
+                    <TextField promptText="Search destinations..." styleClass="search-input"/>
+                    <Button text="Search" styleClass="search-button"/>
+                </HBox>
+            </VBox>
+        </StackPane>
+
+        <!-- Popular Destinations Section -->
+        <VBox spacing="25">
+            <HBox alignment="CENTER_LEFT" styleClass="section-header">
+                <Text styleClass="section-title" text="Popular Destinations"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="View All" styleClass="view-all-button"/>
+            </HBox>
+
+            <HBox spacing="20" styleClass="popular-cards-container">
+                <!-- Popular Destination Cards -->
+                <VBox fx:id="popularContainer" spacing="20" HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+
+        <!-- Featured Experience Section -->
+        <VBox spacing="25">
+            <Text styleClass="section-title" text="Featured Experiences"/>
+
+            <GridPane fx:id="featuredGrid" hgap="20" vgap="20" styleClass="featured-grid"/>
+        </VBox>
+
+        <!-- Recommended Section -->
+        <VBox spacing="25">
+            <HBox alignment="CENTER_LEFT" styleClass="section-header">
+                <VBox spacing="5">
+                    <Text styleClass="section-title" text="Recommended for You"/>
+                    <Text styleClass="section-subtitle" text="Based on your preferences"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="View All" styleClass="view-all-button"/>
+            </HBox>
+
+            <VBox fx:id="recommendedContainer" spacing="15"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

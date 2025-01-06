@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DashboardController"
+            fx:id="rootPane" prefWidth="1280" prefHeight="800" stylesheets="@styles.css">
+
+    <!-- HEADER -->
+    <top>
+        <HBox spacing="20" styleClass="header">
+            <Label fx:id="welcomeLabel" text="Welcome, Admin!" styleClass="header-title" />
+            <Region HBox.hgrow="ALWAYS" /> <!-- Pushes logout to the right -->
+            <HBox spacing="15" alignment="CENTER">
+                <Label text="Admin" styleClass="header-user" />
+                <Button text="Logout" onAction="#logout" styleClass="header-button" />
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <Button fx:id="dashboardButton" onAction="#showDashboard" text="Dashboard" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="dashboard-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="analyticsButton" onAction="#showAnalytics" text="Analytics" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="analytics-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="destinationsButton" onAction="#showDestinationManagement" text="Destinations" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="destinations-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="packagesButton" onAction="#showPackageManagement" text="Packages" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="packages-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="bookingsButton" onAction="#showBookingManagement" text="Bookings" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="bookings-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="paymentsButton" onAction="#showPaymentManagement" text="Payments" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="payments-icon" />
+                </graphic>
+            </Button>
+            <Button fx:id="transportButton" onAction="#showTransportManagement" text="Transport" styleClass="sidebar-button">
+                <graphic>
+                    <Region styleClass="transport-icon" />
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <VBox styleClass="content-area">
+            <HBox styleClass="content-header">
+                <Label text="Admin Dashboard" styleClass="main-heading" />
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="Export Data" styleClass="action-button" />
+                    <Button text="Settings" styleClass="action-button" />
+                </HBox>
+            </HBox>
+
+            <GridPane styleClass="dashboard-cards" hgap="20" vgap="20">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33.33" />
+                    <ColumnConstraints percentWidth="33.33" />
+                    <ColumnConstraints percentWidth="33.33" />
+                </columnConstraints>
+
+                <!-- Users Card -->
+                <VBox styleClass="stat-card" GridPane.columnIndex="0">
+                    <HBox styleClass="stat-header">
+                        <VBox>
+                            <Label text="Total Users" styleClass="stat-title" />
+                            <Label text="1,000" styleClass="stat-value" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Region styleClass="users-icon" />
+                    </HBox>
+                    <Label text="+5.2% from last month" styleClass="stat-trend" />
+                </VBox>
+
+                <!-- Bookings Card -->
+                <VBox styleClass="stat-card" GridPane.columnIndex="1">
+                    <HBox styleClass="stat-header">
+                        <VBox>
+                            <Label text="Active Bookings" styleClass="stat-title" />
+                            <Label text="500" styleClass="stat-value" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Region styleClass="bookings-icon" />
+                    </HBox>
+                    <Label text="+12.3% from last month" styleClass="stat-trend" />
+                </VBox>
+
+                <!-- Revenue Card -->
+                <VBox styleClass="stat-card" GridPane.columnIndex="2">
+                    <HBox styleClass="stat-header">
+                        <VBox>
+                            <Label text="Total Revenue" styleClass="stat-title" />
+                            <Label text="" styleClass="stat-value" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Region styleClass="revenue-icon" />
+                    </HBox>
+                    <Label text="+8.7% from last month" styleClass="stat-trend positive" />
+                </VBox>
+            </GridPane>
+
+
+        </VBox>
+    </center>
+</BorderPane>

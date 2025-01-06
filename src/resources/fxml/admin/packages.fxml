@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.PackageController"
+            stylesheets="@../../css/package.css" styleClass="root"
+            prefWidth="1280" prefHeight="800">
+
+
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="content-header">
+                <Label text="Package Management" styleClass="content-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Add New Package" onAction="#openAddPackageForm"
+                        styleClass="button-primary" fx:id="addPackageButton"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox styleClass="search-container">
+                <Label text="Search Packages" styleClass="search-label"/>
+                <TextField fx:id="searchField" promptText="Enter package name, description, or duration..."
+                           styleClass="search-field" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="packageTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="packageIdColumn" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="packageNameColumn" text="Package Name" prefWidth="280"/>
+                    <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="350"/>
+                    <TableColumn fx:id="priceColumn" text="Price" prefWidth="150"/>
+                    <TableColumn fx:id="durationColumn" text="Duration" prefWidth="150"/>
+                    <TableColumn fx:id="actionColumn" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

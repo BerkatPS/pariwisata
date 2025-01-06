@@ -1,0 +1,39 @@
+/* Container untuk dashboard */
+.dashboard-container {
+    -fx-padding: 10;
+    -fx-background-color: #f9f9f9; /* Warna latar belakang */
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #ffffff; /* Warna latar belakang sidebar */
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-border-color: #e0e0e0; /* Warna border */
+    -fx-border-radius: 5;
+}
+
+/* Logo di sidebar */
+.logo {
+    -fx-padding: 10;
+}
+
+/* Tombol di sidebar */
+.sidebar-button {
+    -fx-background-color: #4285f4; /* Warna tombol */
+    -fx-text-fill: white; /* Warna teks */
+    -fx-font-size: 14px;
+    -fx-padding: 10 20; /* Padding tombol */
+    -fx-border-radius: 5; /* Sudut tombol bulat */
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #357ae8; /* Warna saat hover */
+}
+
+/* Tabel pengguna */
+.user-table {
+    -fx-border-color: #d4d4d4;
+    -fx-border-radius: 5;
+    -fx-font-size: 14px;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" stylesheets="@user_styles.css">
+
+    <!-- Heading -->
+    <HBox alignment="CENTER" styleClass="heading-container">
+        <Label text="Available Transport Options" styleClass="main-heading"/>
+    </HBox>
+
+    <!-- Transport Form -->
+    <VBox spacing="15" styleClass="form-container">
+        <!-- Transport ID -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Transport ID" styleClass="form-label"/>
+            <TextField fx:id="transportIdInput" promptText="Enter Transport ID" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Transport Type -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Transport Type" styleClass="form-label"/>
+            <ComboBox fx:id="transportTypeComboBox" promptText="Choose transport type" styleClass="form-control">
+                <!-- Options can be populated from controller -->
+            </ComboBox>
+        </VBox>
+
+        <!-- Price -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Price" styleClass="form-label"/>
+            <TextField fx:id="priceInput" promptText="Enter price" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Departure Time -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Departure Time" styleClass="form-label"/>
+            <TextField fx:id="departureTimeInput" promptText="Enter departure time" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Arrival Time -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Arrival Time" styleClass="form-label"/>
+            <TextField fx:id="arrivalTimeInput" promptText="Enter arrival time" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Add Transport Button -->
+        <Button fx:id="addTransportButton" text="Add Transport" styleClass="book-button"/>
+    </VBox>
+
+    <!-- Back Button -->
+    <Button fx:id="backButton" text="Back" styleClass="see-all-button"/>
+</VBox>

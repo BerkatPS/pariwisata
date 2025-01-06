@@ -1,0 +1,173 @@
+/* General Root styling */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Main headings */
+.main-heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10px 0;
+}
+
+/* Subheadings */
+.sub-heading {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-padding: 5px 0;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 14px;
+}
+
+/* Input Fields */
+.input-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.input-field:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.4), 10, 0, 0, 2);
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.button-primary {
+    -fx-background-color: #2ecc71;
+}
+
+.button-primary:hover {
+    -fx-background-color: #27ae60;
+}
+
+.button-secondary {
+    -fx-background-color: #f39c12;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #e67e22;
+}
+
+.button-danger {
+    -fx-background-color: #e74c3c;
+}
+
+.button-danger:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Table Styling */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-padding: 10px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 2);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #34495e;
+}
+
+.table-view .column-header, .table-view .cell {
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-text-fill: #34495e;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Container for Tables */
+.table-container {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 2);
+}
+
+/* Image View Styling */
+.image-view {
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 2);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15px;
+    -fx-text-fill: white;
+}
+
+.sidebar .sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 10px 15px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-border-radius: 5px;
+}
+
+.sidebar .sidebar-button:hover {
+    -fx-background-color: #34495e;
+    -fx-text-fill: #ffffff;
+}
+
+/* HBox / VBox Styling */
+.hbox, .vbox {
+    -fx-spacing: 10px;
+}
+
+/* Form container */
+.form-container {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 2);
+}
+
+/* Button Container */
+.button-container {
+    -fx-padding: 15px 0;
+}
+
+/* Specific to dashboard container */
+.dashboard-container {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 20px;
+}
+
+/* Heading Styling */
+.heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding-bottom: 15px;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1"  alignment="TOP_CENTER" stylesheets="@user_styles.css" >
+
+    <!-- Heading -->
+    <Label text="Submit Your Review" styleClass="main-heading"/>
+
+    <!-- Review Form Container -->
+    <VBox spacing="15" styleClass="form-container">
+
+        <!-- Booking Selection ComboBox -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Select Booking" styleClass="form-label"/>
+            <ComboBox fx:id="unreviewedDestinationsComboBox" promptText="Select your confirmed booking" styleClass="form-control"/>
+        </VBox>
+
+        <!-- Destination ID (Hidden or uneditable, could be set programmatically) -->
+        <TextField fx:id="destinationIdInput" styleClass="hidden-input" promptText="Destination ID" editable="false"/>
+
+        <!-- User ID (Hidden or uneditable) -->
+        <TextField fx:id="userIdInput" styleClass="hidden-input" promptText="User ID" editable="false"/>
+
+        <!-- Rating Selection -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Rating" styleClass="form-label"/>
+            <ComboBox fx:id="ratingComboBox" promptText="Select Rating" styleClass="form-control">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="1"/>
+                        <String fx:value="2"/>
+                        <String fx:value="3"/>
+                        <String fx:value="4"/>
+                        <String fx:value="5"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <!-- Review Text Area -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Your Review" styleClass="form-label"/>
+            <TextArea fx:id="reviewTextArea" promptText="Write your review here..." styleClass="form-control" wrapText="true"/>
+        </VBox>
+
+        <!-- Submit Date (Automatically set to current date) -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Date" styleClass="form-label"/>
+            <DatePicker fx:id="reviewDatePicker" styleClass="form-control" editable="false"/>
+        </VBox>
+
+        <!-- Submit Button -->
+        <Button fx:id="submitReviewButton" text="Submit Review" styleClass="submit-button"/>
+    </VBox>
+
+    <!-- Padding for the form -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+</VBox>

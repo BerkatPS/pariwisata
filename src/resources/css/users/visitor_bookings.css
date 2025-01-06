@@ -1,0 +1,129 @@
+/* Root Styles */
+.main-container {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 30;
+}
+
+/* Header Styles */
+.header-section {
+    -fx-padding: 20 30;
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.header-title {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-fill: #2d3436;
+}
+
+.header-subtitle {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 16px;
+    -fx-fill: #636e72;
+    -fx-opacity: 0.8;
+}
+
+.book-now-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 24;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.book-now-button:hover {
+    -fx-background-color: #3498db;
+    -fx-translate-y: -1;
+}
+
+/* Scroll Pane Styles */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 5;
+}
+
+/* Booking Card Styles */
+.booking-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+}
+
+.booking-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 8);
+    -fx-translate-y: -2;
+    -fx-border-color: #3498db;
+    -fx-border-width: 1;
+}
+
+.booking-info {
+    -fx-spacing: 30;
+}
+
+/* Info Section Styles */
+.info-section {
+    -fx-spacing: 8;
+}
+
+.info-label {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 13px;
+    -fx-text-fill: #636e72;
+    -fx-font-weight: normal;
+}
+
+.info-text {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+.price-text {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3498db;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    -fx-padding: 5 15;
+    -fx-background-radius: 15;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.status-confirmed {
+    -fx-background-color: #e1f7e9;
+    -fx-text-fill: #3498db;
+}
+
+.status-pending {
+    -fx-background-color: #fff3e0;
+    -fx-text-fill: #f39c12;
+}
+
+.status-canceled {
+    -fx-background-color: #fee7e7;
+    -fx-text-fill: #e74c3c;
+}

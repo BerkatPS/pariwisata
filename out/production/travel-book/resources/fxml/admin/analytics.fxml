@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.AnalyticsController" stylesheets="@styles.css">
+    <center>
+        <VBox spacing="20" alignment="CENTER" styleClass="dashboard-center">
+            <Label text="Analytics Dashboard" styleClass="dashboard-title"/>
+            <HBox spacing="30" alignment="CENTER">
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <Label text="Total Revenue" styleClass="stat-title"/>
+                    <Label fx:id="totalRevenue" text="Rp 0" styleClass="stat-value"/>
+                </VBox>
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <Label text="Total Bookings" styleClass="stat-title"/>
+                    <Label fx:id="totalBookings" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <Label text="Today's Bookings" styleClass="stat-title"/>
+                    <Label fx:id="todaysBookings" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <Label text="Totals Users" styleClass="stat-title"/>
+                    <Label fx:id="totalUsers" text="0" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.PackageFormController"
+            stylesheets="@../../css/package_form.css" styleClass="root" prefWidth="1280" prefHeight="800"> <!-- Increased base window size -->
+    >
+
+    <top>
+        <HBox styleClass="header">
+            <HBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                <Label fx:id="formTitleLabel" text="Add New Package" styleClass="heading"/>
+            </HBox>
+            <Button text="Back to List"  styleClass="button-outline"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="form-scroll">
+            <VBox styleClass="form-container">
+                <GridPane styleClass="form-grid" hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+
+                    <!-- Package Name -->
+                    <VBox spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <Label text="Package Name" styleClass="form-label"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <TextField fx:id="packageNameField" styleClass="form-field"/>
+                        <Label fx:id="packageNameError" styleClass="error-label" managed="false" visible="false"/>
+                    </VBox>
+
+                    <!-- Description -->
+                    <VBox spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                        <Label text="Description" styleClass="form-label"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                        <TextArea fx:id="descriptionField" styleClass="form-field"
+                                  wrapText="true" prefRowCount="4"/>
+                        <Label fx:id="descriptionError" styleClass="error-label" managed="false" visible="false"/>
+                    </VBox>
+
+                    <!-- Price -->
+                    <VBox spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                        <Label text="Price (Rp)" styleClass="form-label"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                        <TextField fx:id="priceField" styleClass="form-field"/>
+                        <Label fx:id="priceError" styleClass="error-label" managed="false" visible="false"/>
+                    </VBox>
+
+                    <!-- Duration -->
+                    <VBox spacing="5" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                        <Label text="Duration" styleClass="form-label"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                        <TextField fx:id="durationField" styleClass="form-field"/>
+                        <Label fx:id="durationError" styleClass="error-label" managed="false" visible="false"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Action Buttons -->
+                <HBox styleClass="form-actions">
+                    <Button fx:id="saveButton" text="Save Package" onAction="#handleSave"
+                            styleClass="button-primary"/>
+                    <Button text="Clear Form" onAction="#handleClear"
+                            styleClass="button-secondary"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

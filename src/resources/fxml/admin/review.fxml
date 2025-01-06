@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ReviewController" alignment="TOP_CENTER" stylesheets="/resources/css/styles.css">
+
+    <Label text="Manage Reviews" styleClass="main-heading"/>
+
+    <TableView fx:id="reviewTable">
+        <columns>
+            <TableColumn fx:id="reviewIdColumn" text="Review ID"/>
+            <TableColumn fx:id="userIdColumn" text="User ID"/>
+            <TableColumn fx:id="destinationIdColumn" text="Destination ID"/>
+            <TableColumn fx:id="ratingColumn" text="Rating"/>
+            <TableColumn fx:id="reviewTextColumn" text="Review"/>
+            <TableColumn fx:id="createdAtColumn" text="Created At"/>
+        </columns>
+    </TableView>
+
+    <VBox spacing="15">
+        <TextField fx:id="userIdField" promptText="User ID"/>
+        <TextField fx:id="destinationIdField" promptText="Destination ID"/>
+        <TextField fx:id="ratingField" promptText="Rating"/>
+        <TextArea fx:id="reviewTextField" promptText="Review Text" prefHeight="100"/>
+    </VBox>
+
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Add Review" onAction="#handleAddReview"/>
+        <Button text="Update Review" onAction="#handleUpdateReview"/>
+        <Button text="Delete Review" onAction="#handleDeleteReview"/>
+    </HBox>
+</VBox>

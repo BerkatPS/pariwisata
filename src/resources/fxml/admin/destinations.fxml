@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.DestinationController"
+            stylesheets="@../../css/destinations.css"
+            styleClass="root"
+            prefWidth="1280"
+            prefHeight="800">
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="content-header">
+                <Label text="Destination Management" styleClass="content-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Add New Destination"
+                        styleClass="button-primary" fx:id="addDestinationButton"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox styleClass="search-container">
+                <Label text="Search Destinations" styleClass="search-label"/>
+                <TextField fx:id="searchField"
+                           promptText="Enter destination name, location, or description..."
+                           styleClass="search-field"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="destinationTable"
+                       VBox.vgrow="ALWAYS"
+                       styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="destinationIdColumn" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="nameColumn" text="Name" prefWidth="200"/>
+                    <TableColumn fx:id="locationColumn" text="Location" prefWidth="200"/>
+                    <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="350"/>
+                    <TableColumn fx:id="priceColumn" text="Price" prefWidth="150"/>
+                    <TableColumn fx:id="actionColumn" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

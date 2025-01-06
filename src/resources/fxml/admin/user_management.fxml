@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.UserController" styleClass="user-management-container" stylesheets="@styles.css">
+    <Label text="User Management" styleClass="heading"/>
+
+    <!-- Tabel untuk menampilkan daftar pengguna -->
+    <TableView fx:id="userTable" styleClass="user-table">
+        <columns>
+            <TableColumn fx:id="userIdColumn" text="User ID" />
+            <TableColumn fx:id="nameColumn" text="Name" />
+            <TableColumn fx:id="emailColumn" text="Email" />
+            <TableColumn fx:id="phoneColumn" text="Phone" />
+            <TableColumn fx:id="roleColumn" text="Role" />
+        </columns>
+    </TableView>
+
+    <!-- Form untuk menambah atau mengubah pengguna -->
+    <HBox spacing="10" styleClass="form-container">
+        <TextField fx:id="nameField" promptText="Name" styleClass="input-field"/>
+        <TextField fx:id="emailField" promptText="Email" styleClass="input-field"/>
+        <TextField fx:id="phoneField" promptText="Phone Number" styleClass="input-field"/>
+        <TextField fx:id="roleField" promptText="Role" styleClass="input-field"/>
+    </HBox>
+
+    <!-- Tombol aksi -->
+    <HBox spacing="10" alignment="CENTER" styleClass="button-container">
+        <Button text="Add User" onAction="#handleAddUser" styleClass="button-primary"/>
+        <Button text="Update User" onAction="#handleUpdateUser" styleClass="button-secondary"/>
+        <Button text="Delete User" onAction="#handleDeleteUser" styleClass="button-danger"/>
+    </HBox>
+</VBox>
