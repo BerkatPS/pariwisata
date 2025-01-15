@@ -9,7 +9,7 @@
 <ScrollPane fitToWidth="true" styleClass="main-scroll-pane" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="app.controllers.UserReviewController" stylesheets="@../../css/users/visitor_review.css">
 
-    <VBox spacing="0" styleClass="main-container">
+    <VBox styleClass="main-container">
         <!-- Hero Section with Parallax Effect -->
         <StackPane styleClass="hero-section">
             <ImageView styleClass="hero-background" fitWidth="1200" preserveRatio="true">
@@ -22,7 +22,7 @@
         </StackPane>
 
         <!-- Stats Cards -->
-        <HBox spacing="0" styleClass="stats-container">
+        <HBox styleClass="stats-container">
             <VBox styleClass="stat-card">
                 <StackPane styleClass="stat-icon-container">
                     <Text styleClass="stat-icon" text="⭐"/>

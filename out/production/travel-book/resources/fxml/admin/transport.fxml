@@ -18,8 +18,6 @@
             <HBox styleClass="content-header">
                 <Label text="Transport Management" styleClass="content-title"/>
                 <HBox HBox.hgrow="ALWAYS"/>
-                <Button text="Add Transport"
-                        styleClass="button-primary" fx:id="addTransportButton"/>
             </HBox>
 
             <!-- Search Bar -->

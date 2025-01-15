@@ -35,7 +35,6 @@ public class BookingController {
     @FXML private TableColumn<Booking, Void> actionColumn;
 
     @FXML private TextField searchField;
-    @FXML private Button addBookingButton;
     @FXML private Label totalBookingsLabel;
     @FXML private Label totalRevenueLabel;
 
@@ -51,7 +50,6 @@ public class BookingController {
         setupActionColumn();
         loadBookings();
 
-        addBookingButton.setOnAction(event -> openBookingForm());
     }
 
     private void setupTableColumns() {

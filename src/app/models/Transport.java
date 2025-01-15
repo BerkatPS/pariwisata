@@ -22,30 +22,77 @@ public class Transport {
     }
 
     // Getters and Setters
-    public int getTransportId() { return transportId.get(); }
-    public void setTransportId(int transportId) { this.transportId.set(transportId); }
+    public int getTransportId() {
+        return transportId.get();
+    }
 
-    public String getTransportType() { return transportType.get(); }
-    public void setTransportType(String transportType) { this.transportType.set(transportType); }
+    public void setTransportId(int transportId) {
+        this.transportId.set(transportId);
+    }
+
+    public String getTransportType() {
+        return transportType.get();
+    }
+
+    public void setTransportType(String transportType) {
+        this.transportType.set(transportType);
+    }
     // Set Destination object
 
-    public double getPrice() { return price.get(); }
-    public void setPrice(double price) { this.price.set(price); }
+    public double getPrice() {
+        return price.get();
+    }
 
-    public int getDestinationId() { return destinationId.get(); }
-    public void setDestinationId(int destinationId) { this.destinationId.set(destinationId); }
+    public void setPrice(double price) {
+        this.price.set(price);
+    }
 
-    public String getDepartureTime() { return departureTime.get(); }
-    public void setDepartureTime(Timestamp departureTime) { this.departureTime.set(departureTime.toString()); }
+    public int getDestinationId() {
+        return destinationId.get();
+    }
 
-    public String getArrivalTime() { return arrivalTime.get(); }
-    public void setArrivalTime(Timestamp arrivalTime) { this.arrivalTime.set(arrivalTime.toString()); }
+    public void setDestinationId(int destinationId) {
+        this.destinationId.set(destinationId);
+    }
+
+    public String getDepartureTime() {
+        return departureTime.get();
+    }
+
+    public void setDepartureTime(Timestamp departureTime) {
+        this.departureTime.set(departureTime.toString());
+    }
+
+    public String getArrivalTime() {
+        return arrivalTime.get();
+    }
+
+    public void setArrivalTime(Timestamp arrivalTime) {
+        this.arrivalTime.set(arrivalTime.toString());
+    }
 
     // Property methods for TableView binding
-    public SimpleIntegerProperty transportIdProperty() { return transportId; }
-    public SimpleStringProperty transportTypeProperty() { return transportType; }
-    public SimpleDoubleProperty priceProperty() { return price; }
-    public SimpleStringProperty departureTimeProperty() { return departureTime; }
-    public SimpleStringProperty arrivalTimeProperty() { return arrivalTime; }
-    public SimpleIntegerProperty destinationIdProperty() { return destinationId; }
+    public SimpleIntegerProperty transportIdProperty() {
+        return transportId;
+    }
+
+    public SimpleStringProperty transportTypeProperty() {
+        return transportType;
+    }
+
+    public SimpleDoubleProperty priceProperty() {
+        return price;
+    }
+
+    public SimpleStringProperty departureTimeProperty() {
+        return departureTime;
+    }
+
+    public SimpleStringProperty arrivalTimeProperty() {
+        return arrivalTime;
+    }
+
+    public SimpleIntegerProperty destinationIdProperty() {
+        return destinationId;
+    }
 }

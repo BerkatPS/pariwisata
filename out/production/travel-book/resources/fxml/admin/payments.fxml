@@ -14,13 +14,6 @@
     <!-- Main Content -->
     <center>
         <VBox styleClass="main-content">
-            <!-- Header -->
-            <HBox styleClass="content-header">
-                <Label text="Payment Management" styleClass="content-title"/>
-                <HBox HBox.hgrow="ALWAYS"/>
-                <Button text="Create Payment"
-                        styleClass="button-primary" fx:id="addPaymentButton"/>
-            </HBox>
 
             <!-- Search Bar -->
             <HBox styleClass="search-container">

@@ -1,220 +1,218 @@
 package app.controllers;
 
+import app.models.Destination;
 import app.models.Package;
 import app.utils.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
-import java.time.LocalDateTime;
 import java.util.Locale;
 
 public class PackageFormController {
-
-    @FXML private Label formTitleLabel;
+    @FXML private ComboBox<Destination> destinationComboBox;
     @FXML private TextField packageNameField;
     @FXML private TextArea descriptionField;
     @FXML private TextField priceField;
     @FXML private TextField durationField;
-    @FXML private Button saveButton;
 
+    @FXML private Label destinationError;
     @FXML private Label packageNameError;
     @FXML private Label descriptionError;
     @FXML private Label priceError;
     @FXML private Label durationError;
 
-    private Package editingPackage;
-    private boolean isEditMode = false;
-    private final NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+    private final NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
     @FXML
     public void initialize() {
-        setupValidation();
+        setupDestinationComboBox();
         setupPriceFormatting();
     }
 
-    private void setupValidation() {
-        // Real-time validation for Package Name
-        packageNameField.textProperty().addListener((obs, oldVal, newVal) -> {
-            validateField(packageNameField, packageNameError, "Package name is required",
-                    newVal != null && !newVal.trim().isEmpty());
-        });
+    private void setupDestinationComboBox() {
+        // Konfigurasi tampilan ComboBox
+        destinationComboBox.setConverter(new StringConverter<Destination>() {
+            @Override
+            public String toString(Destination destination) {
+                return destination == null ? "" : destination.getName();
+            }
 
-        // Real-time validation for Description
-        descriptionField.textProperty().addListener((obs, oldVal, newVal) -> {
-            validateField(descriptionField, descriptionError, "Description is required",
-                    newVal != null && !newVal.trim().isEmpty());
-        });
-
-        // Real-time validation for Price with currency format
-        priceField.textProperty().addListener((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty()) {
-                try {
-                    double price = parsePrice(newVal);
-                    validateField(priceField, priceError, "", price > 0);
-                    if (price <= 0) {
-                        priceError.setText("Price must be greater than 0");
-                    }
-                } catch (NumberFormatException e) {
-                    priceError.setText("Invalid price format");
-                    priceError.setVisible(true);
-                }
+            @Override
+            public Destination fromString(String string) {
+                return null; // Tidak diperlukan untuk ComboBox read-only
             }
         });
 
-        // Real-time validation for Duration
-        durationField.textProperty().addListener((obs, oldVal, newVal) -> {
-            validateField(durationField, durationError, "Duration is required",
-                    newVal != null && !newVal.trim().isEmpty());
-        });
+        // Memuat destinasi yang belum terelasi dengan paket
+        ObservableList<Destination> destinations = FXCollections.observableArrayList();
+
+        String query = """
+            SELECT d.* FROM Destinations d
+            LEFT JOIN Packages p ON d.destination_id = p.destination_id
+            WHERE p.destination_id IS NULL
+            OR d.destination_id NOT IN (
+                SELECT DISTINCT destination_id 
+                FROM Packages 
+                WHERE destination_id IS NOT NULL
+            )
+        """;
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Destination destination = new Destination(
+                        rs.getInt("destination_id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getString("location"),
+                        rs.getString("opening_hours"),
+                        rs.getDouble("price_per_entry"),
+                        rs.getString("image_url"),
+                        rs.getTimestamp("created_at").toLocalDateTime(),
+                        rs.getTimestamp("updated_at").toLocalDateTime()
+                );
+                destinations.add(destination);
+            }
+
+            destinationComboBox.setItems(destinations);
+
+            // Tambahkan listener untuk menampilkan error jika tidak ada destinasi
+            if (destinations.isEmpty()) {
+                destinationError.setText("No available destinations. Please add a destination first.");
+                destinationError.setVisible(true);
+            }
+
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load destinations: " + e.getMessage());
+        }
     }
 
     private void setupPriceFormatting() {
-        // Format price when focus is lost
-        priceField.focusedProperty().addListener((obs, wasFocused, isFocused) -> {
-            if (!isFocused && !priceField.getText().isEmpty()) {
-                try {
-                    double price = parsePrice(priceField.getText());
-                    priceField.setText(currencyFormat.format(price));
-                } catch (NumberFormatException e) {
-                    priceError.setText("Invalid price format");
-                    priceError.setVisible(true);
-                }
+        priceField.focusedProperty().addListener((obs, oldVal, isFocused) -> {
+            if (!isFocused) {
+                formatPrice();
             }
         });
     }
 
-    public void initForEdit(Package pkg) {
-        this.editingPackage = pkg;
-        this.isEditMode = true;
-        formTitleLabel.setText("Edit Package");
-        saveButton.setText("Update Package");
+    private void formatPrice() {
+        try {
+            if (!priceField.getText().isEmpty()) {
+                double price = parsePrice(priceField.getText());
+                priceField.setText(currencyFormatter.format(price));
+                priceError.setVisible(false);
+            }
+        } catch (NumberFormatException e) {
+            priceError.setText("Invalid price format");
+            priceError.setVisible(true);
+        }
+    }
 
-        // Populate fields with existing data
-        packageNameField.setText(pkg.getPackageName());
-        descriptionField.setText(pkg.getDescription());
-        priceField.setText(currencyFormat.format(pkg.getPrice()));
-        durationField.setText(pkg.getDuration());
+    @FXML
+    private void handleClose() {
+        Stage stage = (Stage) packageNameField.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void handleSave() {
         if (validateForm()) {
-            try (Connection conn = DBConnection.getConnection()) {
-                if (isEditMode) {
-                    updatePackage(conn);
-                } else {
-                    insertPackage(conn);
-                }
-                showAlert(Alert.AlertType.INFORMATION, "Success",
-                        isEditMode ? "Package updated successfully" : "Package added successfully");
-                handleBack();
+            try {
+                savePackage();
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Package saved successfully");
+                handleClose();
             } catch (SQLException e) {
-                showAlert(Alert.AlertType.ERROR, "Error",
-                        "Failed to " + (isEditMode ? "update" : "save") + " package: " + e.getMessage());
+                showAlert(Alert.AlertType.ERROR, "Error", "Failed to save package: " + e.getMessage());
             }
-        }
-    }
-
-    private void insertPackage(Connection conn) throws SQLException {
-        String sql = "INSERT INTO Packages (package_name, description, price, duration, created_at, updated_at) " +
-                "VALUES (?, ?, ?, ?, NOW(), NOW())";
-
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, packageNameField.getText().trim());
-            stmt.setString(2, descriptionField.getText().trim());
-            stmt.setDouble(3, parsePrice(priceField.getText()));
-            stmt.setString(4, durationField.getText().trim());
-            stmt.executeUpdate();
-        }
-    }
-
-    private void updatePackage(Connection conn) throws SQLException {
-        String sql = "UPDATE Packages SET package_name = ?, description = ?, price = ?, " +
-                "duration = ?, updated_at = NOW() WHERE package_id = ?";
-
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, packageNameField.getText().trim());
-            stmt.setString(2, descriptionField.getText().trim());
-            stmt.setDouble(3, parsePrice(priceField.getText()));
-            stmt.setString(4, durationField.getText().trim());
-            stmt.setInt(5, editingPackage.getPackageId());
-            stmt.executeUpdate();
-        }
-    }
-
-    @FXML
-    private void handleClear() {
-        packageNameField.clear();
-        descriptionField.clear();
-        priceField.clear();
-        durationField.clear();
-        clearValidationErrors();
-    }
-
-    @FXML
-    private void handleBack() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/resources/fxml/admin/package.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) saveButton.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     private boolean validateForm() {
         boolean isValid = true;
 
-        isValid &= validateField(packageNameField, packageNameError, "Package name is required",
-                !packageNameField.getText().trim().isEmpty());
+        // Reset error labels
+        clearErrorLabels();
 
-        isValid &= validateField(descriptionField, descriptionError, "Description is required",
-                !descriptionField.getText().trim().isEmpty());
+        // Validate Destination
+        if (destinationComboBox.getValue() == null) {
+            destinationError.setText("Please select a destination");
+            destinationError.setVisible(true);
+            isValid = false;
+        }
 
+        // Validate Package Name
+        if (packageNameField.getText().trim().isEmpty()) {
+            packageNameError.setText("Package name is required");
+            packageNameError.setVisible(true);
+            isValid = false;
+        }
+
+        // Validate Description
+        if (descriptionField.getText().trim().isEmpty()) {
+            descriptionError.setText("Description is required");
+            descriptionError.setVisible(true);
+            isValid = false;
+        }
+
+        // Validate Price
         try {
             double price = parsePrice(priceField.getText());
-            isValid &= validateField(priceField, priceError, "Price must be greater than 0", price > 0);
+            if (price <= 0) {
+                priceError.setText("Price must be greater than zero");
+                priceError.setVisible(true);
+                isValid = false;
+            }
         } catch (NumberFormatException e) {
             priceError.setText("Invalid price format");
             priceError.setVisible(true);
             isValid = false;
         }
 
-        isValid &= validateField(durationField, durationError, "Duration is required",
-                !durationField.getText().trim().isEmpty());
+        // Validate Duration
+        if (durationField.getText().trim().isEmpty()) {
+            durationError.setText("Duration is required");
+            durationError.setVisible(true);
+            isValid = false;
+        }
 
         return isValid;
     }
 
-    private boolean validateField(TextInputControl field, Label errorLabel, String errorMessage, boolean condition) {
-        errorLabel.setText(errorMessage);
-        errorLabel.setVisible(!condition);
-        errorLabel.setManaged(!condition);
-        return condition;
-    }
-
-    private void clearValidationErrors() {
+    private void clearErrorLabels() {
+        destinationError.setVisible(false);
         packageNameError.setVisible(false);
         descriptionError.setVisible(false);
         priceError.setVisible(false);
         durationError.setVisible(false);
     }
 
-    private double parsePrice(String priceStr) {
-        // Remove currency symbol and formatting
-        String normalized = priceStr.replaceAll("[Rp.,\\s]", "");
-        return Double.parseDouble(normalized);
+    private void savePackage() throws SQLException {
+        String query = "INSERT INTO Packages (destination_id, package_name, description, price, duration, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, destinationComboBox.getValue().getDestinationId());
+            stmt.setString(2, packageNameField.getText().trim());
+            stmt.setString(3, descriptionField.getText().trim());
+            stmt.setDouble(4, parsePrice(priceField.getText()));
+            stmt.setString(5, durationField.getText().trim());
+            stmt.executeUpdate();
+        }
+    }
+
+    private double parsePrice(String priceText) {
+        return Double.parseDouble(priceText.replaceAll("[^\\d.]", ""));
     }
 
     private void showAlert(Alert.AlertType type, String title, String content) {

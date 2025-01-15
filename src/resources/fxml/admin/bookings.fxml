@@ -18,8 +18,6 @@
             <HBox styleClass="content-header">
                 <Label text="Booking Management" styleClass="content-title"/>
                 <HBox HBox.hgrow="ALWAYS"/>
-                <Button text="Create Booking" onAction="#openBookingForm"
-                        styleClass="button-primary" fx:id="addBookingButton"/>
             </HBox>
 
             <!-- Search Bar -->
@@ -38,7 +36,7 @@
                     <Label fx:id="totalBookingsLabel" text="0" styleClass="stat-value"/>
                 </VBox>
                 <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
-                    <Label text="Total Revenue" styleClass="stat-label"/>
+                    <Label text="Total Bookings" styleClass="stat-label"/>
                     <Label fx:id="totalRevenueLabel" text="Rp 0" styleClass="stat-value"/>
                 </VBox>
             </HBox>

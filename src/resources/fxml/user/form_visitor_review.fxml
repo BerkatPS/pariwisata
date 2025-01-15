@@ -6,7 +6,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1"  alignment="TOP_CENTER" stylesheets="@user_styles.css" >
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.UserReviewFormController" alignment="TOP_CENTER" stylesheets="@user_styles.css">
 
     <!-- Heading -->
     <Label text="Submit Your Review" styleClass="main-heading"/>
@@ -20,11 +20,6 @@
             <ComboBox fx:id="unreviewedDestinationsComboBox" promptText="Select your confirmed booking" styleClass="form-control"/>
         </VBox>
 
-        <!-- Destination ID (Hidden or uneditable, could be set programmatically) -->
-        <TextField fx:id="destinationIdInput" styleClass="hidden-input" promptText="Destination ID" editable="false"/>
-
-        <!-- User ID (Hidden or uneditable) -->
-        <TextField fx:id="userIdInput" styleClass="hidden-input" promptText="User ID" editable="false"/>
 
         <!-- Rating Selection -->
         <VBox spacing="5" styleClass="form-group">
@@ -48,14 +43,8 @@
             <TextArea fx:id="reviewTextArea" promptText="Write your review here..." styleClass="form-control" wrapText="true"/>
         </VBox>
 
-        <!-- Submit Date (Automatically set to current date) -->
-        <VBox spacing="5" styleClass="form-group">
-            <Label text="Date" styleClass="form-label"/>
-            <DatePicker fx:id="reviewDatePicker" styleClass="form-control" editable="false"/>
-        </VBox>
-
         <!-- Submit Button -->
-        <Button fx:id="submitReviewButton" text="Submit Review" styleClass="submit-button"/>
+        <Button fx:id="submitReviewButton" text="Submit Review" styleClass="submit-button" onAction="#handleSubmitReview"/>
     </VBox>
 
     <!-- Padding for the form -->

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.controllers.DestinationFormController"
+      spacing="15"
+      styleClass="destination-form"
+      >
+
+    <Label text="Add New Destination" styleClass="form-title"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="nameField"
+                   promptText="Enter destination name"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"
+                   GridPane.hgrow="ALWAYS"/>
+
+        <Label text="Location" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="locationField"
+                   promptText="Enter destination location"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+        <Label text="Description" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextArea fx:id="descriptionField"
+                  promptText="Enter destination description"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="2"/>
+
+        <Label text="Opening Hours" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="openingHoursField"
+                   promptText="e.g., 09:00 - 17:00"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="3"/>
+
+        <Label text="Price Per Entry" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextField fx:id="priceField"
+                   promptText="Enter price"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="4"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Upload Image"
+                onAction="#handleImageUpload"
+                styleClass="button-secondary"/>
+        <ImageView fx:id="imagePreview"
+                   fitWidth="150"
+                   fitHeight="100"
+                   preserveRatio="true"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel"
+                onAction="#handleCancel"
+                styleClass="button-danger"/>
+        <Button text="Save"
+                onAction="#handleSave"
+                styleClass="button-primary"/>
+    </HBox>
+</VBox>

@@ -35,7 +35,7 @@ public class TransportController {
     @FXML private TableColumn<Transport, Void> actionColumn;
 
     @FXML private TextField searchField;
-    @FXML private Button addTransportButton;
+//    @FXML private Button addTransportButton;
 //    @FXML private Label totalTransportsLabel;
 //    @FXML private Label totalRevenueLabel;
 
@@ -51,7 +51,7 @@ public class TransportController {
         setupActionColumn();
         loadTransports();
 
-        addTransportButton.setOnAction( event -> openAddTransportForm());
+//        addTransportButton.setOnAction( event -> openAddTransportForm());
     }
 
     private void setupTableColumns() {

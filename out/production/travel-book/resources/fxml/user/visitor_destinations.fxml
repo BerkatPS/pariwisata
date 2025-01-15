@@ -5,59 +5,57 @@
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.DropShadow?>
 
 <ScrollPane fitToWidth="true" styleClass="main-scroll-pane" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="app.controllers.UserDestinationController" stylesheets="@../../css/users/visitor_destinations.css">
+            fx:controller="app.controllers.UserDestinationController"
+            stylesheets="@../../css/users/visitor_destinations.css">
 
     <VBox spacing="40" styleClass="main-container">
         <!-- Hero Section -->
         <StackPane styleClass="hero-section">
-            <ImageView fx:id="heroImage" fitWidth="1200" fitHeight="300" styleClass="hero-image"/>
-            <VBox spacing="15" styleClass="hero-content">
-                <Text styleClass="hero-title" text="Discover Indonesia"/>
-                <Text styleClass="hero-subtitle" text="Explore the beauty of 17,000 islands"/>
+            <ImageView fx:id="heroImage" fitWidth="1200" fitHeight="500" styleClass="hero-image"/>
+            <VBox spacing="20" styleClass="hero-content">
+                <Text styleClass="hero-title" text="Explore Indonesia's Wonders"/>
+                <Text styleClass="hero-subtitle" text="Discover Breathtaking Landscapes"/>
 
                 <!-- Search Bar -->
                 <HBox styleClass="search-bar">
-                    <TextField promptText="Search destinations..." styleClass="search-input"/>
-                    <Button text="Search" styleClass="search-button"/>
+                    <TextField fx:id="searchField" promptText="Search destinations..." styleClass="search-input" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="searchButton" text="Explore" styleClass="search-button"/>
                 </HBox>
             </VBox>
         </StackPane>
 
-        <!-- Popular Destinations Section -->
-        <VBox spacing="25">
+        <!-- Featured Destinations Section -->
+        <VBox spacing="25" styleClass="section-container">
             <HBox alignment="CENTER_LEFT" styleClass="section-header">
-                <Text styleClass="section-title" text="Popular Destinations"/>
+                <Text styleClass="section-title" text="Featured Destinations"/>
                 <Region HBox.hgrow="ALWAYS"/>
                 <Button text="View All" styleClass="view-all-button"/>
             </HBox>
 
-            <HBox spacing="20" styleClass="popular-cards-container">
-                <!-- Popular Destination Cards -->
-                <VBox fx:id="popularContainer" spacing="20" HBox.hgrow="ALWAYS"/>
-            </HBox>
+            <HBox fx:id="featuredDestinationsContainer" spacing="20" alignment="CENTER"/>
         </VBox>
 
-        <!-- Featured Experience Section -->
-        <VBox spacing="25">
-            <Text styleClass="section-title" text="Featured Experiences"/>
-
-            <GridPane fx:id="featuredGrid" hgap="20" vgap="20" styleClass="featured-grid"/>
+        <!-- Destination Grid Section -->
+        <VBox spacing="25" styleClass="section-container">
+            <Text styleClass="section-title" text="Explore Indonesia"/>
+            <GridPane fx:id="destinationGrid" hgap="20" vgap="20" styleClass="destination-grid"/>
         </VBox>
 
-        <!-- Recommended Section -->
-        <VBox spacing="25">
+        <!-- Recommended Experiences Section -->
+        <VBox spacing="25" styleClass="section-container">
             <HBox alignment="CENTER_LEFT" styleClass="section-header">
                 <VBox spacing="5">
-                    <Text styleClass="section-title" text="Recommended for You"/>
-                    <Text styleClass="section-subtitle" text="Based on your preferences"/>
+                    <Text styleClass="section-title" text="Recommended Experiences"/>
+                    <Text styleClass="section-subtitle" text="Unique Journeys Await You"/>
                 </VBox>
                 <Region HBox.hgrow="ALWAYS"/>
                 <Button text="View All" styleClass="view-all-button"/>
             </HBox>
 
-            <VBox fx:id="recommendedContainer" spacing="15"/>
+            <HBox fx:id="recommendedExperiencesContainer" spacing="20" alignment="CENTER"/>
         </VBox>
     </VBox>
 </ScrollPane>

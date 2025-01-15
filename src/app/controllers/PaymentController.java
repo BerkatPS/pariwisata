@@ -12,8 +12,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 
 import java.sql.*;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class PaymentController {
     @FXML private TableView<Payment> paymentTable;
@@ -53,15 +55,12 @@ public class PaymentController {
 
     private void setupActionColumn() {
         actionColumn.setCellFactory(column -> new TableCell<Payment, Void>() {
-            private final Button confirmButton = new Button("Confirm");
             private final Button cancelButton = new Button("Cancel");
 
 
             {
-                confirmButton.getStyleClass().add("button-secondary");
                 cancelButton.getStyleClass().add("button-danger");
 
-                confirmButton.setOnAction(event -> handleConfirmPayment());
                 cancelButton.setOnAction(event -> handleCancelPayment());
             }
 
@@ -71,7 +70,7 @@ public class PaymentController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    HBox actionBox = new HBox(10, confirmButton, cancelButton);
+                    HBox actionBox = new HBox(10, cancelButton);
                     setGraphic(actionBox);
                 }
             }
@@ -278,9 +277,37 @@ public class PaymentController {
     }
 
     private void updateStatistics() {
-        totalPaymentsLabel.setText(String.valueOf(paymentList.size()));
-        double totalRevenue = paymentList.stream().mapToDouble(Payment::getPaymentAmount).sum();
-        totalRevenueLabel.setText("Rp " + totalRevenue);
+        try (Connection connection = DBConnection.getConnection()) {
+            // Hitung total pembayaran
+            String totalPaymentsQuery = "SELECT COUNT(*) AS total_payments FROM Payments";
+            String totalRevenueQuery = "SELECT SUM(payment_amount) AS total_revenue FROM Payments WHERE status = 'Paid'";
+
+            try (Statement stmt = connection.createStatement()) {
+                // Hitung total pembayaran
+                ResultSet rsPayments = stmt.executeQuery(totalPaymentsQuery);
+                if (rsPayments.next()) {
+                    int totalPayments = rsPayments.getInt("total_payments");
+                    totalPaymentsLabel.setText(String.valueOf(totalPayments));
+                }
+
+                // Hitung total revenue
+                ResultSet rsRevenue = stmt.executeQuery(totalRevenueQuery);
+                if (rsRevenue.next()) {
+                    double totalRevenue = rsRevenue.getDouble("total_revenue");
+
+                    // Format total revenue dalam mata uang Rupiah
+                    NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+                    totalRevenueLabel.setText(currencyFormatter.format(totalRevenue));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error calculating statistics: " + e.getMessage(), Alert.AlertType.ERROR);
+
+            // Set default values jika terjadi error
+            totalPaymentsLabel.setText("0");
+            totalRevenueLabel.setText("Rp 0");
+        }
     }
 
     private void showAlert(String message, Alert.AlertType alertType) {
